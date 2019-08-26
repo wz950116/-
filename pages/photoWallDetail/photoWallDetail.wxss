@@ -1,0 +1,41 @@
+.photowalldetail {
+  background-color: #f6f6f6;
+  padding: 0 20rpx;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.photo_show {
+  width: 100%;
+  height: 600rpx;
+  margin-top: 150rpx;
+}
+.photo_show_img {
+  display: block;
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
+  border-radius: 20rpx;
+  box-shadow: 0 0 20rpx rgba(37,13,1,0.72);
+}
+.photo_list {
+  position: absolute;
+  bottom: 30rpx;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20rpx 0;
+}
+.photo_list_img {
+  width: 200rpx;
+  height: 200rpx;
+  margin: 0 10rpx;
+  border-radius: 20rpx;
+}
+.photo_list_img_active {
+  width: 220rpx;
+  height: 220rpx;
+  box-shadow: 0 0 20rpx rgba(37,13,1,0.72);
+}

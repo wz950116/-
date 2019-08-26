@@ -1,0 +1,35 @@
+<scroll-view class='home_wrap'>
+  <button class="upload" bindtap="onUpload">上传图文</button>
+  <swiper indicator-dots="{{indicatorDots}}" indicator-color="{{dotColor}}" indicator-active-color="{{dotActiveColor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">
+    <block wx:for="{{imgUrls}}" wx:key="unique">
+      <swiper-item>
+        <image src="{{item}}" class="img" bindtap="swipclick" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class='weui-cell-third'>
+    <block wx:for="{{listData}}" wx:key="*this" wx:for-index="idx">
+      <view class='weui-cell-list'>
+        
+        <view class='weui-cell-circle-active' wx:if="{{idx === 0}}"></view>
+        <view class='weui-cell-circle' wx:else></view>
+
+        <view class='weui-cell-nav'>
+          <text class="weui-cell-date">{{item.CreateDate}}</text>
+          <view class="weui-cell-add" wx:if="{{idx === 0}}" bindtap="addParty">新增</view>
+        </view>
+
+        <view class='weui-cell-line'>
+          <view class='weui-cell-content'>
+            <view class='weui-cell-title'>{{item.Title}}</view>
+            <view class='weui-cell-text'>{{item.Content}}</view>
+            <view class='weui-cell-detail' bindtap="onCheck" data-id='{{item.Id}}'>点击查看>></view>
+          </view>
+        </view>
+
+      </view>
+
+    </block>
+  </view>
+</scroll-view>

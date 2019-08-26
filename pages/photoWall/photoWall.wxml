@@ -1,0 +1,14 @@
+<scroll-view class='photowall_wrap'>
+  <view class='photowall' wx:for="{{listData}}" wx:key="unique">
+    <view class='user'>
+      <image class="user-head" src="../imgs/{{item.PhotoUrl}}" bindtap="swipclick" />
+      <text class="user-name">{{item.Nike}}</text>
+    </view>
+    <view class='photos'>
+      <text class='photo-message' wx:for="{{item.PartyCircleDetailDtos}}" wx:for-index="idx" wx:key="unique" wx:if='{{item.Type === 1}}'>{{item.Content}}</text>
+      <view class='photo-wrapper' wx:for="{{item.PartyCircleDetailDtos}}" wx:for-index="idx" wx:key="unique" wx:if='{{item.Type !== 1}}'>
+        <image src="../imgs/{{item.Thumbnail}}" class="photo" bindtap="swipclick" data-url="../imgs/{{item.Thumbnail}}" />
+      </view>
+    </view>
+  </view>
+</scroll-view>

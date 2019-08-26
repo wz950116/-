@@ -1,0 +1,27 @@
+<scroll-view class='edit_wrap'>
+  <view class='page'>
+    <view class='top_button'>
+      <view class='button button_cancel' bindtap="cancel">取消</view>
+      <view class='button button_publish' bindtap="publish">发表</view>
+    </view>
+    <textarea value="{{inputText}}" maxlength='-1' placeholder-style='color:#a7a7a7;' class='text' bindinput="onInput" placeholder="这一刻的想法..." auto-height/>
+    <view class="image_content">
+      <view class='image' wx:for="{{sourceUrls}}" wx:key="unique">
+        <image src="{{item.url}}" data-item="{{item}}" data-index="{{index}}" bindlongpress="deleteImage" bindtap="previewImage" class="moment_img">
+          <!-- 视频按钮 -->
+          <view class="video-shadow" wx:if='{{item.type === "video"}}'>
+            <image  class="video-icon" src="./video.png"></image>
+          </view>
+        </image>
+      </view>
+      <view class='image' style='display:{{ hideAdd ? "none" : "inline-block" }}'>
+        <image bindtap="chooseSource" class="moment_img" src='./add.jpg'></image>
+      </view>
+    </view>
+    <!-- 视频预览 -->
+    <view class='shadow' wx:if='{{previewVideoShow}}'>
+      <view class='preview-video-close' bindtap="clickMask">关闭</view>
+      <video src="{{videoUrl}}" class='video'></video>
+    </view>
+  </view>
+</scroll-view>

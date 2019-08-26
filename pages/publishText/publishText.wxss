@@ -1,0 +1,9 @@
+.page {
+  padding: 20px;
+}
+.text {
+  width: 100%;
+  font-size: 36rpx;
+  padding: 5px;
+  min-height: 100rpx;
+}

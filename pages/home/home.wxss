@@ -1,0 +1,98 @@
+.home_wrap{
+  box-sizing: border-box;
+  width: 100%;
+  background-color: antiquewhite;
+  padding: 30rpx;
+  min-height: 100vh;
+}
+/* 上传图文 */
+.upload {
+  width: 50%;
+  background: transparent;
+  border: none;
+}
+/* 轮播图 */
+swiper{
+  width: calc(100% - 20rpx);
+  height: 466rpx;
+  margin: 20rpx auto 40rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 0 10rpx rgba(37,13,1,0.72);
+  overflow: hidden;
+}
+.img {
+  width: 100%;
+}
+/* 时间轴 */
+.weui-cell-third {
+  background: #f6efdd;
+}
+.weui-cell-list {
+  position: relative;
+  background: #f6efdd;
+}
+.weui-cell-list:last-of-type > .weui-cell-line {
+  border: none;
+}
+.weui-cell-circle {
+  border: 5rpx solid #6e412e;
+  border-radius: 50%;
+  width: 28rpx;
+  height: 28rpx;
+  background: transparent;
+}
+.weui-cell-circle-active {
+  border: 5rpx solid #6e412e;
+  border-radius: 50%;
+  width: 28rpx;
+  height: 28rpx;
+  background: #d9b78a;
+}
+.weui-cell-nav {
+  position: absolute;
+  left: 45rpx;
+  top: -8rpx;
+  width: calc(100% - 20px);
+}
+.weui-cell-date {
+  float: left;
+  font-size: 18px;
+  color: #d9b78a;
+}
+.weui-cell-add {
+  float: right;
+  width: 110rpx;
+  padding: 6rpx 0;
+  text-align: center;
+  border-radius: 28rpx;
+  background: #a02f2b;
+  color: #ffffff;
+  margin-top: 4rpx;
+}
+.weui-cell-line {
+  margin-left: 16.5rpx;
+  border-left: 5rpx solid #5d3e21;
+  padding-top: .1px;
+  padding-bottom: 30rpx;
+}
+.weui-cell-content {
+  color: #946e45;
+  background: #d9b78a;
+  border-radius: 5px;
+  margin: 30rpx 0 0 20rpx;
+  padding: 15rpx 30rpx;
+}
+.weui-cell-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  line-height: 52rpx;
+}
+.weui-cell-text {
+  font-size: 32rpx;
+  line-height: 48rpx;
+}
+.weui-cell-detail {
+  width: 100%;
+  text-align: right;
+  color: #a1302c;
+}

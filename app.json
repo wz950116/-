@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/home",
+    "pages/addParty/addParty",
+    "pages/logs/logs",
+    "pages/photoWall/photoWall",
+    "pages/uploadNew/uploadNew",
+    "pages/photoWallDetail/photoWallDetail",
+    "pages/publishText/publishText"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "yellowgreen",
+    "navigationBarTitleText": "同学聚会",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}
