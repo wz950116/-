@@ -1,0 +1,3 @@
+<view class='shadow'>
+  <video src="{{videoUrl}}" class='video'></video>
+</view>

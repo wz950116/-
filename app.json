@@ -6,14 +6,16 @@
     "pages/logs/logs",
     "pages/photoWall/photoWall",
     "pages/uploadNew/uploadNew",
-    "pages/photoWallDetail/photoWallDetail",
+    "pages/photoWallImage/photoWallImage",
+    "pages/photoWallVideo/photoWallVideo",
     "pages/publishText/publishText"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "yellowgreen",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "同学聚会",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
   },
   "sitemapLocation": "sitemap.json"
 }

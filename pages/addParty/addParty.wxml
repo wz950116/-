@@ -1,14 +1,14 @@
 <view class='add_party'>
   <label class="add_party_text">时间</label>
-  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-    <view class="picker" wx:if="{{PartyDate}}"> {{PartyDate}} </view>
-    <view class="picker no_picker" wx:if="{{!PartyDate}}">选择聚会时间</view>
+  <picker mode="date" value="{{formData.PartyDate}}" bindchange="bindDateChange">
+    <view class="picker" wx:if="{{formData.PartyDate}}"> {{formData.PartyDate}} </view>
+    <view class="picker no_picker" wx:else>选择聚会时间</view>
   </picker>
   <form bindsubmit="bindFormSubmit">
     <label class="add_party_text">标题</label>
-    <input name="Title" class="add_party_input" type='text' placeholder="选择聚会标题" placeholder-style='color:#cccccc;'></input>
+    <input name="title" class="add_party_input" type='text' placeholder="选择聚会标题" placeholder-style='color:#cccccc;' value="{{formData.Title}}"></input>
     <label class="add_party_text">详情</label>
-    <textarea name="Content" class="add_party_textarea" placeholder="聚会内容描述" placeholder-style='color:#cccccc;'></textarea>
+    <textarea name="content" class="add_party_textarea" placeholder="聚会内容描述" placeholder-style='color:#cccccc;' value="{{formData.Content}}"></textarea>
     <button form-type="submit" class='complete'>完成</button>
   </form>
 </view>

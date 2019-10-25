@@ -7,49 +7,11 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <form bindsubmit="submitPassword">
-    <input name="partyPassword" class='input_password' type='text' placeholder='请输入聚会密码'></input>
-    <button class='btn_validpw' form-type="submit" type="primary">验证</button>
+  <form bindsubmit="onSubmit" wx:if="{{hasUserInfo}}">
+    <input wx:if="{{!isLogin}}" value='{{partyPassword}}' name="partyPassword" class='input_password' type='text' placeholder='请输入聚会密码' bindinput="onInput" password></input>
+    <button class='btn_validpw' form-type="submit" type="primary">{{isLogin ? '登录' : '验证'}}</button>
   </form>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
-  </view>
-
-  <!-- 注册弹窗 -->
-  <!--mask-->
-  <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{registerShow}}"></view>
-  <!--使用animation属性指定需要执行的动画-->
-  <view class="drawer_box" wx:if="{{registerShow}}">
-    <view class="drawer_title">注册用户</view>
-    <form class="drawer_form" bindsubmit="bindFormSubmit">
-      <view class='drawer_form_item'>
-        <label>昵称</label>
-        <input class='drawer_form_item-input' name="nick" type='text' placeholder="请输入昵称" placeholder-style='color:#cccccc;' data-name='nick' bindinput="bindInput"></input>
-      </view>
-      <view class='drawer_form_item'>
-        <label>年龄</label>
-        <input class='drawer_form_item-input' name="age" type='number' placeholder="请输入年龄" placeholder-style='color:#cccccc;' data-name='age' bindinput="bindInput"></input>
-      </view>
-      <view class='drawer_form_item'>
-        <label>性别</label>
-        <radio-group class='drawer_form_item-radio' bindchange="radioChange">
-          <label class="radio">
-            <radio value="1" checked='true' />男
-          </label>
-          <label class="radio">
-            <radio value="0" />女
-          </label>
-        </radio-group>
-      </view>
-      <view class='drawer_form_item'>
-        <label>头像</label>
-        <image src='./add.jpg' class='drawer_form_item-upload' bindtap="chooseSource" wx:if='{{!uploaded}}'></image>
-        <image src='{{form.photoUrl}}' class='drawer_form_item-upload' bindtap="chooseSource" wx:else></image>
-      </view>
-      <view class='drawer_button_group'>
-        <button bindtap="closeRegister" class='drawer_button close'>关闭</button>
-        <button form-type="submit" class='drawer_button complete' type="primary">注册</button>
-      </view>
-    </form>
   </view>
 </view>

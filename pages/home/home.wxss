@@ -5,16 +5,10 @@
   padding: 30rpx;
   min-height: 100vh;
 }
-/* 上传图文 */
-.upload {
-  width: 50%;
-  background: transparent;
-  border: none;
-}
 /* 轮播图 */
 swiper{
   width: calc(100% - 20rpx);
-  height: 466rpx;
+  height: 240px;
   margin: 20rpx auto 40rpx;
   border-radius: 16rpx;
   box-shadow: 0 0 10rpx rgba(37,13,1,0.72);
@@ -22,10 +16,24 @@ swiper{
 }
 .img {
   width: 100%;
+  height: 240px;
 }
 /* 时间轴 */
-.weui-cell-third {
+.weui-cell-wrap {
+  position: relative;
   background: #f6efdd;
+}
+.weui-cell-add {
+  position: absolute;
+  top: 0;
+  right: 10rpx;
+  width: 110rpx;
+  padding: 6rpx 0;
+  text-align: center;
+  border-radius: 28rpx;
+  background: #a02f2b;
+  color: #ffffff;
+  z-index: 99;
 }
 .weui-cell-list {
   position: relative;
@@ -59,16 +67,6 @@ swiper{
   font-size: 18px;
   color: #d9b78a;
 }
-.weui-cell-add {
-  float: right;
-  width: 110rpx;
-  padding: 6rpx 0;
-  text-align: center;
-  border-radius: 28rpx;
-  background: #a02f2b;
-  color: #ffffff;
-  margin-top: 4rpx;
-}
 .weui-cell-line {
   margin-left: 16.5rpx;
   border-left: 5rpx solid #5d3e21;
@@ -93,6 +91,12 @@ swiper{
 }
 .weui-cell-detail {
   width: 100%;
-  text-align: right;
+  height: 40rpx;
   color: #a1302c;
+}
+.weui-cell-update {
+  float: left;
+}
+.weui-cell-view {
+  float: right;
 }

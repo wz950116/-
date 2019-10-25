@@ -3,7 +3,7 @@ const betaapi = {
 }
 
 const devapi = {
-  baseUrl: 'https://party.inchwell.com.cn/',
+  baseUrl: 'https://party.inchwell.com.cn',
   imgUrl: 'https://party.inchwell.com.cn/Contents/Medias'
 }
 const api = devapi

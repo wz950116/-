@@ -1,14 +1,35 @@
 <scroll-view class='photowall_wrap'>
-  <view class='photowall' wx:for="{{listData}}" wx:key="unique">
-    <view class='user'>
-      <image class="user-head" src="../imgs/{{item.PhotoUrl}}" bindtap="swipclick" />
-      <text class="user-name">{{item.Nike}}</text>
+  <view hidden='{{previewVideoShow}}'>
+    <view class="upload" bindtap="onUpload">
+      <image class='upload-icon' src="./camera.png"></image>
     </view>
-    <view class='photos'>
-      <text class='photo-message' wx:for="{{item.PartyCircleDetailDtos}}" wx:for-index="idx" wx:key="unique" wx:if='{{item.Type === 1}}'>{{item.Content}}</text>
-      <view class='photo-wrapper' wx:for="{{item.PartyCircleDetailDtos}}" wx:for-index="idx" wx:key="unique" wx:if='{{item.Type !== 1}}'>
-        <image src="../imgs/{{item.Thumbnail}}" class="photo" bindtap="swipclick" data-url="../imgs/{{item.Thumbnail}}" />
+    <view class='photowall' wx:for="{{listData}}" wx:key="unique">
+      <view class='user'>
+        <image class="user-head" src="{{item.PhotoUrl}}" bindtap="swipclick" />
+        <text class="user-name">{{item.Nike}}</text>
+      </view>
+      <view class='photos'>
+        <text class='photo-message' wx:for="{{item.PartyCircleDetailDtos}}" wx:for-index="idx" wx:key="unique" wx:if='{{item.Type === 1}}'>{{item.Content}}</text>
+        <view class='photo-wrapper' wx:for="{{item.PartyCircleDetailDtos}}" wx:for-index="idx" wx:for-item='it' wx:key="unique" wx:if='{{it.Type === 2}}'>
+          <image src="{{it.Thumbnail}}" class="photo" bindtap="swipclick" data-id="{{it.PartyCircleId}}" data-type="image" mode="aspectFill" />
+        </view>
+        <view class='photo-wrapper' wx:for="{{item.PartyCircleDetailDtos}}" wx:for-index="idx" wx:key="unique" wx:if='{{item.Type === 3}}'>
+          <image src='./video.jpg' class="photo" bindtap="swipclick" data-url="{{item.Thumbnail}}" data-type="video">
+            <!-- 视频按钮 -->
+            <view class="video-shadow">
+              <image  class="video-icon" src="../uploadNew/video.png"></image>
+            </view>
+          </image>
+        </view>
+      </view>
+      <view class='delete' wx:if="{{item.Isallowdelete}}">
+        <image class='delete-icon' src="./delete.png" data-id="{{item.PartyCircleId}}" bindtap="doDelete" />
       </view>
     </view>
+  </view>
+  <!-- 视频预览 -->
+  <view class='shadow' wx:if='{{previewVideoShow}}'>
+    <view class='preview-video-close' bindtap="clickMask">关闭</view>
+    <video src="{{videoUrl}}" class='video'></video>
   </view>
 </scroll-view>

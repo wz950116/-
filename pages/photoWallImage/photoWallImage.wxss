@@ -9,12 +9,12 @@
   width: 100%;
   height: 600rpx;
   margin-top: 150rpx;
+  overflow: auto;
 }
 .photo_show_img {
   display: block;
   width: 95%;
-  height: 100%;
-  margin: 0 auto;
+  margin: 20rpx auto;
   border-radius: 20rpx;
   box-shadow: 0 0 20rpx rgba(37,13,1,0.72);
 }

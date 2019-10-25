@@ -1,68 +1,61 @@
-// pages/publishText/publishText.js
+const app = getApp()
+const util = require('../../utils/util.js')
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    input: ''
+    inputText: '',
+    partyId: ''
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  // 初始化
+  onLoad(options) {
+    this.setData({
+      partyId: options.partyId
+    })
     wx.setNavigationBarTitle({
       title: '发表文字'
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onInput(e) {
+    this.setData({
+      inputText: e.detail.value
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  // 发表按钮事件
+  publish() {
+    const that = this
+    wx.showLoading({
+      title: '上传中',
+    })
+    wx.request({
+      url: `${util.api.baseUrl}/api/party/AddPartyCircle`,
+      method: "POST",
+      data: {
+        partyId: that.data.partyId,
+        openId: app.globalData.openId,
+        article: that.data.inputText
+      },
+      success(res) {
+        const data = JSON.parse(res.data)
+        if (data.Code === 0) {
+          wx.hideLoading()
+          wx.navigateBack({
+            url: `../photoWall/photoWall?id=${that.data.partyId}`
+          })
+        } else {
+          wx.showToast({
+            title: data.Msg,
+            icon: 'none',
+            duration: 1000
+          })
+        }
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // 取消按钮事件
+  cancel() {
+    const that = this
+    wx.navigateBack({
+      url: `../photoWall/photoWall?id=${that.data.partyId}`
+    })
   }
 })

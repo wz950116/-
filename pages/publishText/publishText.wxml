@@ -1,5 +1,9 @@
 <scroll-view>
   <view class='page'>
-    <textarea value="{{input}}" maxlength='-1' placeholder-style='color:#a7a7a7;' class='text' bindinput="input" placeholder="这一刻的想法..." auto-height/>
+    <view class='top_button'>
+      <view class='button button_cancel' bindtap="cancel">取消</view>
+      <view class='button button_publish' bindtap="publish">发表</view>
+    </view>
+    <textarea value="{{inputText}}" maxlength='-1' placeholder-style='color:#a7a7a7;' class='text' bindinput="onInput" placeholder="这一刻的想法..." auto-height/>
 </view>
 </scroll-view>

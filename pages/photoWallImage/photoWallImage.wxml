@@ -1,0 +1,10 @@
+<scroll-view class='photowalldetail'>
+  <view class='photo_show'>
+    <image src="{{showImageUrl}}" bindlongpress='saveImage' class="photo_show_img" mode='widthFix' data-url="{{showImageUrl}}" />
+  </view>
+  <view class='photo_list'>
+    <view style='width: {{ 220 * imgUrls.length + 20 }}rpx;'>
+      <image wx:for="{{imgUrls}}" wx:key="unique" src="{{item.Thumbnail}}" class="photo_list_img {{ item.Content === showImageUrl ? 'photo_list_img_active' : '' }}" data-index="{{index}}" data-url="{{item.Content}}" catchtap='onCollectionTap' mode="aspectFill" />
+    </view>
+  </view>
+</scroll-view>
